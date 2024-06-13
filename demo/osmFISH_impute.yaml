@@ -1,0 +1,23 @@
+data_paths:
+  rna_data: ../data/osmFISH_Zeisel/zeisel_scRNA.h5ad
+  spatial_data: ../data/osmFISH_Zeisel/osmFISH_spatial.h5ad
+  save_path: ./results/osmFISH_Zeisel
+
+model_parameters:
+  d_hidden: 64
+  d_latent: 16
+  lam_clf: 0.1
+  lam_cos: 1
+  lam_genegraph: 0
+  lam_impute: 1
+  lam_mmd: 0.1
+  lam_recon: 1
+training_parameters:
+  device_id: 0
+  eval_step: 50
+  k_folds: 5
+  lr: 0.002
+  num_epoch: 500
+  rna_batchsize: -1
+  spatial_batchsize: -1
+  spatial_knn: 10

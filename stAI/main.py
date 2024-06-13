@@ -90,12 +90,12 @@ def train_and_impute(adata_spatial, adata_rna, ST_gt, SC_ref, gene_fit, gene_cal
             logger.info('Epoch [{}/{}], Loss: {:.4f}, Loss_recon: {:.4f}, Loss_mmd: {:.4f}, Loss_cos: {:.4f}, Loss_clf: {:.4f}, Loss_impute: {:.4f}, Loss_genegraph: {:.4f}'\
                         .format(i+1, num_epoch, loss.item(), loss_recon.item(), loss_mmd.item(), \
                             loss_cos.item(), loss_clf.item(), loss_impute.item(), loss_genegraph.item()))
-            torch.save(model.state_dict(), os.path.join(save_dir, 'state_dict', f'epoch_{i+1}.pth'))
-            logger.info(f"Save model state_dict of epoch {i+1} at {os.path.join(save_dir, 'state_dict', f'epoch_{i+1}.pth')}")
-            test_impute_score, ST_test_impute = eval_and_impute(model, spatial_dataset, rna_dataset, ST_gt, SC_ref, training_parameters['spatial_knn'])
-            logger.info('Test Score: {:.4f}'.format(test_impute_score))
-            if ST_test_impute is not None:
-                np.save(os.path.join(save_dir, 'impute_res', f'epoch_{i+1}.npy'), ST_test_impute)
+    torch.save(model.state_dict(), os.path.join(save_dir, 'state_dict', f'epoch_{num_epoch}.pth'))
+    logger.info(f"Save model state_dict of epoch {num_epoch} at {os.path.join(save_dir, 'state_dict', f'epoch_{num_epoch}.pth')}")
+    test_impute_score, ST_test_impute = eval_and_impute(model, spatial_dataset, rna_dataset, ST_gt, SC_ref, training_parameters['spatial_knn'])
+    logger.info('Test Score: {:.4f}'.format(test_impute_score))
+    if ST_test_impute is not None:
+        np.save(os.path.join(save_dir, 'impute_res', f'epoch_{num_epoch}.npy'), ST_test_impute)
 
 def run_impute(model_parameters, training_parameters, adata_spatial, adata_rna, save_dir, genes_to_impute=None, random_seed=8848):
     # accept adata before processed
@@ -145,7 +145,7 @@ def run_impute(model_parameters, training_parameters, adata_spatial, adata_rna, 
         train_and_impute(adata_spatial_train, adata_rna_train, ST_gt, SC_ref, gene_fit, gene_calibration, model_parameters, training_parameters, random_seed, temp_save_dir)
 
 
-
+# modifying
 def run_impute_loo(model_parameters, training_parameters, adata_spatial, adata_rna, save_dir, random_seed=8848):
     # accept adata before processed
 

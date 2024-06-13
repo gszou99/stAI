@@ -1,7 +1,7 @@
 data_paths:
   rna_data: ../data/osmFISH_Zeisel/zeisel_scRNA.h5ad
   spatial_data: ../data/osmFISH_Zeisel/osmFISH_spatial.h5ad
-  save_path: ./results/osmFISH_Zeisel
+  save_path: ./results/osmFISH_Zeisel/imputation
 
 model_parameters:
   d_hidden: 64

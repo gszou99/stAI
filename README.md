@@ -21,8 +21,7 @@ conda activate stAI
 conda env create -f environment.yml
 ```
 
-stAI is test on GPU, the versions of [torch, torchvision](https://pytorch.org/) and [dgl](https://www.dgl.ai/pages/start.html)
-need to be compatible with the version of CUDA.
+stAI is test on GPU, the versions of [torch, torchvision](https://pytorch.org/) need to be compatible with the version of CUDA.
 
 
 ## Installation

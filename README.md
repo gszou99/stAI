@@ -11,7 +11,7 @@ It is recommended to use a Python version  `3.8`.
 ```
 conda create -n stAI python==3.8
 ```
-* install STAMapper from shell:
+* install stAI from shell:
 ```
 conda activate stAI
 ```
